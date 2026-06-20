@@ -49,7 +49,7 @@ export default async function HomePage({
       games={filteredGames}
       allGames={allGames}
       activeCategory={(category as Category) || 'all'}
-      searchQuery={search}
+      searchQuery={search || ''}
     />
   );
 }
