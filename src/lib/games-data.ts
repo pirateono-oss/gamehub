@@ -2,26 +2,234 @@ import type { Game } from './types';
 
 export const games: Game[] = [
   {
+    slug: '2048',
+    category: 'puzzle',
+    iframeUrl: '/games/2048/index.html',
+    thumbnailEmoji: '🔢',
+    translations: {
+      en: { title: '2048', description: 'Merge tiles to reach the 2048 tile! A classic puzzle game where you combine numbers to create higher values.', instructions: 'Use arrow keys to slide tiles. Merge same numbers to create larger numbers. Reach 2048 to win!' },
+      es: { title: '2048', description: '¡Combina fichas para llegar a 2048! Un clásico juego de puzzle donde combinas números para crear valores más altos.', instructions: 'Usa las teclas de dirección para deslizar fichas. Combina números iguales para crear números más grandes. ¡Alcanza 2048 para ganar!' },
+      pt: { title: '2048', description: 'Combine blocos para chegar ao 2048! Um clássico jogo de quebra-cabeça onde você combina números para criar valores maiores.', instructions: 'Use as teclas de seta para deslizar blocos. Combine números iguais para criar números maiores. Chegue a 2048 para vencer!' },
+    },
+  },
+  {
+    slug: 'wordle-unlimited',
+    category: 'puzzle',
+    iframeUrl: '/games/wordleunlimited/index.html',
+    thumbnailEmoji: '🔤',
+    translations: {
+      en: { title: 'Wordle Unlimited', description: 'Guess the hidden word in 6 tries. A popular word puzzle game that tests your vocabulary.', instructions: 'Type a 5-letter word and press enter. Green = correct letter in right position. Yellow = correct letter in wrong position. Gray = letter not in word.' },
+      es: { title: 'Wordle Unlimited', description: 'Adivina la palabra oculta en 6 intentos. Un popular juego de palabras que pone a prueba tu vocabulario.', instructions: 'Escribe una palabra de 5 letras y presiona enter. Verde = letra correcta y posición correcta. Amarillo = letra correcta en posición incorrecta.' },
+      pt: { title: 'Wordle Unlimited', description: 'Adivinhe a palavra oculta em 6 tentativas. Um popular jogo de palavras que testa seu vocabulário.', instructions: 'Digite uma palavra de 5 letras e pressione enter. Verde = letra correta na posição certa. Amarelo = letra correta na posição errada.' },
+    },
+  },
+  {
+    slug: 'trap-the-cat',
+    category: 'puzzle',
+    iframeUrl: '/games/trapthecat/index.html',
+    thumbnailEmoji: '🐱',
+    translations: {
+      en: { title: 'Trap the Cat', description: 'A strategic puzzle game where you trap a cat by clicking on dots. Can you corner the clever feline?', instructions: 'Click on dots to block the cat\'s path. Trap the cat so it can\'t move. Plan your moves carefully!' },
+      es: { title: 'Trap the Cat', description: 'Un juego de puzzle estratégico donde atrapas a un gato haciendo clic en puntos. ¿Puedes acorralar al felino?', instructions: 'Haz clic en los puntos para bloquear el camino del gato. Atrapa al gato para que no pueda moverse.' },
+      pt: { title: 'Trap the Cat', description: 'Um jogo de quebra-cabeça estratégico onde você prende um gato clicando em pontos. Você consegue encurralar o felino?', instructions: 'Clique nos pontos para bloquear o caminho do gato. Prenda o gato para que não possa se mover.' },
+    },
+  },
+  {
+    slug: 'agariolite',
+    category: 'casual',
+    iframeUrl: '/games/agariolite/index.html',
+    thumbnailEmoji: '🟣',
+    translations: {
+      en: { title: 'Agar.io Lite', description: 'A simplified version of the popular cell-eating game. Eat smaller cells, grow bigger, and avoid bigger ones!', instructions: 'Move your mouse to control your cell. Eat smaller colored cells to grow. Avoid larger cells that can eat you.' },
+      es: { title: 'Agar.io Lite', description: 'Una versión simplificada del popular juego de comer células. Come células más pequeñas, crece y evita las más grandes.', instructions: 'Mueve el ratón para controlar tu célula. Come células de colores más pequeñas para crecer. Evita las células más grandes.' },
+      pt: { title: 'Agar.io Lite', description: 'Uma versão simplificada do popular jogo de comer células. Coma células menores, cresça e evite as maiores!', instructions: 'Mova o mouse para controlar sua célula. Coma células coloridas menores para crescer. Evite células maiores.' },
+    },
+  },
+  {
+    slug: 'unicycle-hero',
+    category: 'sports',
+    iframeUrl: '/games/unicyclehero/index.html',
+    thumbnailEmoji: '🚲',
+    translations: {
+      en: { title: 'Unicycle Hero', description: 'Balance on a unicycle and ride through challenging obstacles. A fun physics-based sports game.', instructions: 'Use arrow keys or tilt to maintain balance. Lean forward to move, lean back to slow down. Don\'t fall!' },
+      es: { title: 'Unicycle Hero', description: 'Equilibra en un monociclo y atraviesa obstáculos desafiantes. Un divertido juego de deportes basado en física.', instructions: 'Usa las teclas de dirección para mantener el equilibrio. Inclínate hacia adelante para moverte, hacia atrás para frenar.' },
+      pt: { title: 'Unicycle Hero', description: 'Equilibre em um monociclo e atravesse obstáculos desafiadores. Um divertido jogo de esportes baseado em física.', instructions: 'Use as teclas de seta para manter o equilíbrio. Incline-se para frente para mover, para trás para frear.' },
+    },
+  },
+  {
+    slug: 'wheelie-bike',
+    category: 'sports',
+    iframeUrl: '/games/wheeliebike/index.html',
+    thumbnailEmoji: '🏍️',
+    translations: {
+      en: { title: 'Wheelie Bike', description: 'Perform stunts on your bike! Balance and ride to keep the wheelie going as long as possible.', instructions: 'Use up/down arrows to control balance. Lean back to do a wheelie. Keep balanced to ride further.' },
+      es: { title: 'Wheelie Bike', description: '¡Haz acrobacias en tu bicicleta! Equilibra y conduce para mantener la rueda levantada el mayor tiempo posible.', instructions: 'Usa las flechas arriba/abajo para controlar el equilibrio. Inclínate hacia atrás para hacer un wheelie.' },
+      pt: { title: 'Wheelie Bike', description: 'Faça manobras na sua bicicleta! Equilibre e ande para manter a roda dianteira levantada o máximo possível.', instructions: 'Use as setas cima/baixo para controlar o equilíbrio. Incline-se para trás para fazer wheelie.' },
+    },
+  },
+  {
+    slug: 'volley-random',
+    category: 'sports',
+    iframeUrl: '/games/volleyrandom/index.html',
+    thumbnailEmoji: '🏐',
+    translations: {
+      en: { title: 'Volley Random', description: 'A fun volleyball game where you compete against the computer. Spike, serve, and score points!', instructions: 'Move your player with arrow keys. Press space to hit the ball. Time your jumps to spike the ball over the net.' },
+      es: { title: 'Volley Random', description: 'Un divertido juego de voleibol donde compites contra la computadora. ¡Remata, sirve y anota puntos!', instructions: 'Mueve tu jugador con las teclas de dirección. Presiona espacio para golpear el balón.' },
+      pt: { title: 'Volley Random', description: 'Um divertido jogo de vôlei onde você compete contra o computador. Corte, saque e marque pontos!', instructions: 'Mova seu jogador com as teclas de seta. Pressione espaço para bater na bola.' },
+    },
+  },
+  {
+    slug: '1on1-soccer',
+    category: 'sports',
+    iframeUrl: '/games/1on1soccer/index.html',
+    thumbnailEmoji: '⚽',
+    translations: {
+      en: { title: '1 on 1 Soccer', description: 'Classic one-on-one soccer match. Dribble past your opponent and score goals in this fast-paced sports game.', instructions: 'Use arrow keys to move your player. Kick the ball towards the goal. First to 5 goals wins!' },
+      es: { title: '1 on 1 Soccer', description: 'Partido de fútbol clásico uno contra uno. Regatea a tu oponente y marca goles en este rápido juego deportivo.', instructions: 'Usa las teclas de dirección para mover a tu jugador. Patea el balón hacia la portería.' },
+      pt: { title: '1 on 1 Soccer', description: 'Partida clássica de futebol um contra um. Drible seu oponente e marque gols neste rápido jogo esportivo.', instructions: 'Use as teclas de seta para mover seu jogador. Chute a bola em direção ao gol.' },
+    },
+  },
+  {
+    slug: '1on1-tennis',
+    category: 'sports',
+    iframeUrl: '/games/1on1tennis/index.html',
+    thumbnailEmoji: '🎾',
+    translations: {
+      en: { title: '1 on 1 Tennis', description: 'Play a classic tennis match against the computer. Serve, volley, and smash your way to victory!', instructions: 'Move your player with arrow keys. Press space to hit the ball. Time your swings for powerful shots.' },
+      es: { title: '1 on 1 Tennis', description: 'Juega un partido de tenis clásico contra la computadora. ¡Saca, volea y remata tu camino a la victoria!', instructions: 'Mueve a tu jugador con las teclas de dirección. Presiona espacio para golpear la pelota.' },
+      pt: { title: '1 on 1 Tennis', description: 'Jogue uma partida clássica de tênis contra o computador. Saque, voleie e ataque seu caminho para a vitória!', instructions: 'Mova seu jogador com as teclas de seta. Pressione espaço para bater na bola.' },
+    },
+  },
+  {
+    slug: 'trivia-crack',
+    category: 'puzzle',
+    iframeUrl: '/games/triviacrack/index.html',
+    thumbnailEmoji: '🧠',
+    translations: {
+      en: { title: 'Trivia Crack', description: 'Test your knowledge across multiple categories. Answer questions correctly to win the game!', instructions: 'Read each question and select the correct answer. Answer enough questions to beat the opponent.' },
+      es: { title: 'Trivia Crack', description: 'Pon a prueba tu conocimiento en múltiples categorías. ¡Responde preguntas correctamente para ganar!', instructions: 'Lee cada pregunta y selecciona la respuesta correcta. Responde suficientes preguntas para vencer al oponente.' },
+      pt: { title: 'Trivia Crack', description: 'Teste seu conhecimento em várias categorias. Responda perguntas corretamente para vencer!', instructions: 'Leia cada pergunta e selecione a resposta correta. Responda perguntas suficientes para vencer o oponente.' },
+    },
+  },
+  {
+    slug: 'chasing-lights',
+    category: 'action',
+    iframeUrl: '/games/chasing-lights/index.html',
+    thumbnailEmoji: '💡',
+    translations: {
+      en: { title: 'Chasing Lights', description: 'A fast-paced action game where you chase moving lights and avoid obstacles. Quick reflexes required!', instructions: 'Use mouse or keyboard to chase the lights. Collect all lights to complete each level.' },
+      es: { title: 'Chasing Lights', description: 'Un juego de acción rápida donde persigues luces en movimiento y evitas obstáculos. ¡Se requieren reflejos rápidos!', instructions: 'Usa el ratón o teclado para perseguir las luces. Colecciona todas las luces para completar cada nivel.' },
+      pt: { title: 'Chasing Lights', description: 'Um jogo de ação rápida onde você persegue luzes em movimento e evita obstáculos. Reflexos rápidos são necessários!', instructions: 'Use o mouse ou teclado para perseguir as luzes. Colete todas as luzes para completar cada nível.' },
+    },
+  },
+  {
+    slug: 'exterminator',
+    category: 'action',
+    iframeUrl: '/games/exterminator/index.html',
+    thumbnailEmoji: '🔫',
+    translations: {
+      en: { title: 'Exterminator', description: 'Blast away waves of enemies in this action-packed shooter game. Aim, shoot, and survive!', instructions: 'Use mouse to aim, click to shoot. Move with WASD or arrow keys. Survive waves of enemies.' },
+      es: { title: 'Exterminator', description: '¡Explota oleadas de enemigos en este juego de disparos lleno de acción. Apunta, dispara y sobrevive!', instructions: 'Usa el ratón para apuntar, haz clic para disparar. Muévete con WASD o flechas. Sobrevive oleadas de enemigos.' },
+      pt: { title: 'Exterminator', description: 'Elimine ondas de inimigos neste jogo de tiro cheio de ação. Mire, atire e sobreviva!', instructions: 'Use o mouse para mirar, clique para atirar. Mova-se com WASD ou setas. Sobreviva a ondas de inimigos.' },
+    },
+  },
+  {
+    slug: 'skull-ocean',
+    category: 'action',
+    iframeUrl: '/games/skull-ocean/index.html',
+    thumbnailEmoji: '💀',
+    translations: {
+      en: { title: 'Skull Ocean', description: 'Navigate treacherous waters filled with danger in this action-adventure game.', instructions: 'Use arrow keys to navigate your ship. Avoid obstacles and enemies. Collect treasures to score.' },
+      es: { title: 'Skull Ocean', description: 'Navega por aguas traicioneras llenas de peligro en este juego de acción y aventura.', instructions: 'Usa las teclas de dirección para navegar tu barco. Evita obstáculos y enemigos. Colecciona tesoros.' },
+      pt: { title: 'Skull Ocean', description: 'Navegue por águas traiçoeiras cheias de perigo neste jogo de ação e aventura.', instructions: 'Use as teclas de seta para navegar seu navio. Evite obstáculos e inimigos. Colete tesouros.' },
+    },
+  },
+  {
+    slug: 'spacepi',
+    category: 'action',
+    iframeUrl: '/games/spacepi/index.html',
+    thumbnailEmoji: '🌌',
+    translations: {
+      en: { title: 'SpacePi', description: 'Defend your bases in space! A mouse accuracy and agility game by jackrugile, originally for js13k.', instructions: 'Use mouse to aim and click to shoot. Protect your bases from incoming asteroids and enemies.' },
+      es: { title: 'SpacePi', description: '¡Defiende tus bases en el espacio! Un juego de precisión del ratón que desafía tu agilidad.', instructions: 'Usa el ratón para apuntar y haz clic para disparar. Protege tus bases de asteroides y enemigos.' },
+      pt: { title: 'SpacePi', description: 'Defenda suas bases no espaço! Um jogo de precisão do mouse que desafia sua agilidade.', instructions: 'Use o mouse para mirar e clique para atirar. Proteja suas bases de asteroides e inimigos.' },
+    },
+  },
+  {
+    slug: 'stolen-sword',
+    category: 'action',
+    iframeUrl: '/games/stolen-sword/index.html',
+    thumbnailEmoji: '🗡️',
+    translations: {
+      en: { title: 'Stolen Sword', description: 'Embark on a quest to recover a stolen sword. Fight enemies and explore in this action adventure.', instructions: 'Use arrow keys to move. Press space or Z to attack. Defeat enemies and find the stolen sword.' },
+      es: { title: 'Stolen Sword', description: 'Embárcate en una búsqueda para recuperar una espada robada. ¡Combate enemigos y explora en esta aventura!', instructions: 'Usa las teclas de dirección para moverte. Presiona espacio o Z para atacar. Derrota enemigos.' },
+      pt: { title: 'Stolen Sword', description: 'Embarque em uma missão para recuperar uma espada roubada. Lute contra inimigos e explore nesta aventura!', instructions: 'Use as teclas de seta para mover. Pressione espaço ou Z para atacar. Derrote inimigos.' },
+    },
+  },
+  {
+    slug: 'sushi-kitchen',
+    category: 'casual',
+    iframeUrl: '/games/sushi-kitchen/index.html',
+    thumbnailEmoji: '🍣',
+    translations: {
+      en: { title: 'Sushi Kitchen', description: 'Run your own sushi restaurant! Prepare and serve sushi dishes to hungry customers as fast as you can.', instructions: 'Follow recipe instructions. Click ingredients and combine them in the right order. Serve dishes quickly for tips!' },
+      es: { title: 'Sushi Kitchen', description: '¡Gestiona tu propio restaurante de sushi! Prepara y sirve platos de sushi a clientes hambrientos lo más rápido posible.', instructions: 'Sigue las instrucciones de la receta. Haz clic en los ingredientes y combínalos en el orden correcto.' },
+      pt: { title: 'Sushi Kitchen', description: 'Gerencie seu próprio restaurante de sushi! Prepare e sirva pratos de sushi para clientes famintos o mais rápido possível.', instructions: 'Siga as instruções da receita. Clique nos ingredientes e combine-os na ordem correta.' },
+    },
+  },
+  {
+    slug: 'sword-art-offline',
+    category: 'action',
+    iframeUrl: '/games/sword-art-offline/index.html',
+    thumbnailEmoji: '⚔️',
+    translations: {
+      en: { title: 'Sword Art Offline', description: 'A simple sword fighting game where you battle enemies in an arena. Slash, dodge, and conquer!', instructions: 'Use arrow keys to move. Press Z or X to attack with your sword. Defeat all enemies to win.' },
+      es: { title: 'Sword Art Offline', description: 'Un simple juego de lucha con espadas donde combates enemigos en una arena. ¡Corta, esquiva y conquista!', instructions: 'Usa las teclas de dirección para moverte. Presiona Z o X para atacar con tu espada.' },
+      pt: { title: 'Sword Art Offline', description: 'Um simples jogo de luta com espadas onde você batalha inimigos em uma arena. Corte, desvie e conquiste!', instructions: 'Use as teclas de seta para mover. Pressione Z ou X para atacar com sua espada.' },
+    },
+  },
+  {
+    slug: 'triska',
+    category: 'puzzle',
+    iframeUrl: '/games/triska/index.html',
+    thumbnailEmoji: '🔺',
+    translations: {
+      en: { title: 'Triska', description: 'A triangular puzzle game where you match and clear shapes. A fresh take on classic matching gameplay.', instructions: 'Click on adjacent triangles of the same color to clear them. Clear groups to score points.' },
+      es: { title: 'Triska', description: 'Un juego de puzzle triangular donde emparejas y limpias formas. Una nueva versión del juego de emparejar clásico.', instructions: 'Haz clic en triángulos adyacentes del mismo color para limpiarlos. Limpia grupos para ganar puntos.' },
+      pt: { title: 'Triska', description: 'Um jogo de quebra-cabeça triangular onde você combina e limpa formas. Uma nova versão do jogo clássico de combinar.', instructions: 'Clique em triângulos adjacentes da mesma cor para limpá-los. Limpe grupos para ganhar pontos.' },
+    },
+  },
+  {
+    slug: 'tube-jumpers',
+    category: 'action',
+    iframeUrl: '/games/tubejumpers/index.html',
+    thumbnailEmoji: '🧊',
+    translations: {
+      en: { title: 'Tube Jumpers', description: 'Jump and dodge through tube-filled levels! A challenging platformer where timing is everything.', instructions: 'Click or tap to jump. Time your jumps carefully to land on platforms. Don\'t fall into the gaps.' },
+      es: { title: 'Tube Jumpers', description: '¡Salta y esquiva a través de niveles llenos de tubos! Un desafiante juego de plataformas donde el tiempo lo es todo.', instructions: 'Haz clic o toca para saltar. Calcula bien tus saltos para aterrizar en las plataformas.' },
+      pt: { title: 'Tube Jumpers', description: 'Pule e desvie através de níveis cheios de tubos! Um desafiador jogo de plataforma onde o tempo é tudo.', instructions: 'Clique ou toque para pular. Calcule bem seus pulos para aterrissar nas plataformas.' },
+    },
+  },
+  {
+    slug: 'age-of-war',
+    category: 'strategy',
+    iframeUrl: '/games/ageofwar/index.html',
+    thumbnailEmoji: '🏰',
+    translations: {
+      en: { title: 'Age of War', description: 'Build your army and defend your base through the ages. Progress from cavemen to modern warfare in this strategy game.', instructions: 'Click to send troops. Upgrade your units and defenses. Advance through ages to unlock stronger troops.' },
+      es: { title: 'Age of War', description: 'Construye tu ejército y defiende tu base a través de las edades. ¡Progresa de cavernícolas a la guerra moderna!', instructions: 'Haz clic para enviar tropas. Mejora tus unidades y defensas. Avanza a través de las edades.' },
+      pt: { title: 'Age of War', description: 'Construa seu exército e defenda sua base através das eras. Progrida de homens das cavernas à guerra moderna!', instructions: 'Clique para enviar tropas. Melhore suas unidades e defesas. Avance através das eras.' },
+    },
+  },
+  {
     slug: 'black-hole-square',
     category: 'puzzle',
     iframeUrl: '/games/Black%20hole%20square/index.html',
     thumbnailEmoji: '🕳️',
     translations: {
-      en: {
-        title: 'Black Hole Square',
-        description: 'Clean the universe in this puzzle game! Use your black hole to absorb all matter in each level. A relaxing yet challenging puzzle experience.',
-        instructions: 'Click or tap to move your black hole. Absorb smaller objects to grow bigger. Avoid or consume larger objects carefully.',
-      },
-      es: {
-        title: 'Black Hole Square',
-        description: '¡Limpia el universo en este juego de puzzles! Usa tu agujero negro para absorber toda la materia en cada nivel. Una experiencia de puzzle relajante y desafiante.',
-        instructions: 'Haz clic o toca para mover tu agujero negro. Absorbe objetos pequeños para crecer. Evita o consume objetos grandes con cuidado.',
-      },
-      pt: {
-        title: 'Black Hole Square',
-        description: 'Limpe o universo neste jogo de quebra-cabeça! Use seu buraco negro para absorver toda matéria em cada nível. Uma experiência relaxante e desafiadora.',
-        instructions: 'Clique ou toque para mover seu buraco negro. Absorva objetos menores para crescer. Evite ou consuma objetos maiores com cuidado.',
-      },
+      en: { title: 'Black Hole Square', description: 'Clean the universe in this puzzle game! Use your black hole to absorb all matter in each level.', instructions: 'Click or tap to move your black hole. Absorb smaller objects to grow bigger. Avoid or consume larger objects carefully.' },
+      es: { title: 'Black Hole Square', description: '¡Limpia el universo en este juego de puzzles! Usa tu agujero negro para absorber toda la materia en cada nivel.', instructions: 'Haz clic o toca para mover tu agujero negro. Absorbe objetos pequeños para crecer.' },
+      pt: { title: 'Black Hole Square', description: 'Limpe o universo neste jogo de quebra-cabeça! Use seu buraco negro para absorver toda matéria em cada nível.', instructions: 'Clique ou toque para mover seu buraco negro. Absorva objetos menores para crescer.' },
     },
   },
   {
@@ -30,21 +238,9 @@ export const games: Game[] = [
     iframeUrl: '/games/Chromaincident/index.html',
     thumbnailEmoji: '🌈',
     translations: {
-      en: {
-        title: 'Chromaincident',
-        description: 'An intense arcade action game with vibrant colors. Dodge obstacles, collect power-ups, and survive as long as possible in this fast-paced challenge.',
-        instructions: 'Use arrow keys or WASD to move. Avoid enemies and obstacles. Collect colorful orbs for points. Survive as long as you can!',
-      },
-      es: {
-        title: 'Chromaincident',
-        description: 'Un intenso juego de acción arcade con colores vibrantes. Esquiva obstáculos, colecciona potenciadores y sobrevive el mayor tiempo posible.',
-        instructions: 'Usa las teclas de dirección o WASD para moverte. Evita enemigos y obstáculos. Colecciona orbes de colores para puntos. ¡Sobrevive todo lo que puedas!',
-      },
-      pt: {
-        title: 'Chromaincident',
-        description: 'Um intenso jogo de ação arcade com cores vibrantes. Desvie de obstáculos, colete power-ups e sobreviva o máximo possível neste desafio acelerado.',
-        instructions: 'Use as teclas de seta ou WASD para mover. Evite inimigos e obstáculos. Colete orbes coloridos para pontos. Sobreviva o máximo que puder!',
-      },
+      en: { title: 'Chromaincident', description: 'An intense arcade action game with vibrant colors. Dodge obstacles and survive as long as possible.', instructions: 'Use arrow keys or WASD to move. Avoid enemies and obstacles. Survive as long as you can!' },
+      es: { title: 'Chromaincident', description: 'Un intenso juego de acción arcade con colores vibrantes. Esquiva obstáculos y sobrevive el mayor tiempo posible.', instructions: 'Usa las teclas de dirección o WASD para moverte. Evita enemigos y obstáculos.' },
+      pt: { title: 'Chromaincident', description: 'Um intenso jogo de ação arcade com cores vibrantes. Desvie de obstáculos e sobreviva o máximo possível.', instructions: 'Use as teclas de seta ou WASD para mover. Evite inimigos e obstáculos.' },
     },
   },
   {
@@ -53,21 +249,9 @@ export const games: Game[] = [
     iframeUrl: '/games/bitlife/index.html',
     thumbnailEmoji: '🧬',
     translations: {
-      en: {
-        title: 'BitLife',
-        description: 'A life simulation game where you make decisions that shape your character\'s destiny. Choose your path, career, relationships, and see how your life unfolds.',
-        instructions: 'Tap or click to make choices. Each decision affects your character\'s stats like health, happiness, and wealth. Try to live a long and successful life!',
-      },
-      es: {
-        title: 'BitLife',
-        description: 'Un juego de simulación de vida donde tomas decisiones que moldean el destino de tu personaje. Elige tu camino, carrera, relaciones y mira cómo se desarrolla tu vida.',
-        instructions: 'Toca o haz clic para tomar decisiones. Cada decisión afecta las estadísticas de tu personaje como salud, felicidad y riqueza. ¡Intenta vivir una vida larga y exitosa!',
-      },
-      pt: {
-        title: 'BitLife',
-        description: 'Um jogo de simulação de vida onde você toma decisões que moldam o destino do seu personagem. Escolha seu caminho, carreira, relacionamentos e veja como sua vida se desenrola.',
-        instructions: 'Toque ou clique para fazer escolhas. Cada decisão afeta as estatísticas do seu personagem como saúde, felicidade e riqueza. Tente viver uma vida longa e bem-sucedida!',
-      },
+      en: { title: 'BitLife', description: 'A life simulation game where your choices shape your character\'s destiny. Career, relationships, and more!', instructions: 'Tap or click to make choices. Each decision affects your character\'s stats like health, happiness, and wealth.' },
+      es: { title: 'BitLife', description: 'Un juego de simulación de vida donde tus decisiones moldean el destino de tu personaje.', instructions: 'Toca o haz clic para tomar decisiones. Cada decisión afecta las estadísticas de tu personaje.' },
+      pt: { title: 'BitLife', description: 'Um jogo de simulação de vida onde suas escolhas moldam o destino do seu personagem.', instructions: 'Toque ou clique para fazer escolhas. Cada decisão afeta as estatísticas do seu personagem.' },
     },
   },
   {
@@ -76,21 +260,9 @@ export const games: Game[] = [
     iframeUrl: '/games/evilGlitch/index.html',
     thumbnailEmoji: '👾',
     translations: {
-      en: {
-        title: 'Evil Glitch',
-        description: 'A glitch-themed action game where you fight against corrupted data and digital enemies. Navigate through a broken system and restore order.',
-        instructions: 'Use arrow keys to move. Press space to attack. Dodge enemy glitches and collect power-ups. Defeat all corrupted data to clear each level.',
-      },
-      es: {
-        title: 'Evil Glitch',
-        description: 'Un juego de acción con temática de fallos donde luchas contra datos corruptos y enemigos digitales. Navega por un sistema roto y restaura el orden.',
-        instructions: 'Usa las teclas de dirección para moverte. Presiona espacio para atacar. Esquiva fallos enemigos y colecciona potenciadores. Derrota todos los datos corruptos para limpiar cada nivel.',
-      },
-      pt: {
-        title: 'Evil Glitch',
-        description: 'Um jogo de ação com tema de falhas onde você luta contra dados corrompidos e inimigos digitais. Navegue por um sistema quebrado e restaure a ordem.',
-        instructions: 'Use as teclas de seta para mover. Pressione espaço para atacar. Desvie de falhas inimigas e colete power-ups. Derrote todos os dados corrompidos para limpar cada nível.',
-      },
+      en: { title: 'Evil Glitch', description: 'A glitch-themed action game where you fight corrupted data and digital enemies.', instructions: 'Use arrow keys to move. Press space to attack. Defeat all corrupted data to clear each level.' },
+      es: { title: 'Evil Glitch', description: 'Un juego de acción con temática de fallos donde luchas contra datos corruptos y enemigos digitales.', instructions: 'Usa las teclas de dirección para moverte. Presiona espacio para atacar.' },
+      pt: { title: 'Evil Glitch', description: 'Um jogo de ação com tema de falhas onde você luta contra dados corrompidos e inimigos digitais.', instructions: 'Use as teclas de seta para mover. Pressione espaço para atacar.' },
     },
   },
   {
@@ -99,21 +271,9 @@ export const games: Game[] = [
     iframeUrl: '/games/konnekt/index.html',
     thumbnailEmoji: '🔗',
     translations: {
-      en: {
-        title: 'Konnekt',
-        description: 'A strategic JS13k competition game where you connect nodes on a 3D sphere. Expand your network, capture enemy nodes, and dominate the sphere in this unique real-time strategy game.',
-        instructions: 'Drag from your blue nodes to enemy red nodes to attack. Drag on empty space to rotate the 3D sphere. Capture all enemy nodes to win. Use strategy to manage your resources.',
-      },
-      es: {
-        title: 'Konnekt',
-        description: 'Un juego de estrategia de la competencia JS13k donde conectas nodos en una esfera 3D. Expande tu red, captura nodos enemigos y domina la esfera.',
-        instructions: 'Arrastra desde tus nodos azules a los nodos rojos enemigos para atacar. Arrastra en el espacio vacío para rotar la esfera 3D. Captura todos los nodos enemigos para ganar.',
-      },
-      pt: {
-        title: 'Konnekt',
-        description: 'Um jogo de estratégia da competição JS13k onde você conecta nós em uma esfera 3D. Expanda sua rede, capture nós inimigos e domine a esfera.',
-        instructions: 'Arraste dos seus nós azuis para os nós vermelhos inimigos para atacar. Arraste no espaço vazio para girar a esfera 3D. Capture todos os nós inimigos para vencer.',
-      },
+      en: { title: 'Konnekt', description: 'A strategic JS13k game. Connect nodes on a 3D sphere, expand your network, and dominate!', instructions: 'Drag from blue nodes to red enemy nodes to attack. Drag empty space to rotate the sphere.' },
+      es: { title: 'Konnekt', description: 'Un juego de estrategia JS13k. Conecta nodos en una esfera 3D, expande tu red y domina.', instructions: 'Arrastra desde nodos azules a nodos rojos enemigos para atacar. Arrastra espacio vacío para girar.' },
+      pt: { title: 'Konnekt', description: 'Um jogo de estratégia JS13k. Conecte nós em uma esfera 3D, expanda sua rede e domine!', instructions: 'Arraste de nós azuis para nós vermelhos inimigos para atacar. Arraste espaço vazio para girar.' },
     },
   },
   {
@@ -122,21 +282,9 @@ export const games: Game[] = [
     iframeUrl: '/games/retrohaunt/index.html',
     thumbnailEmoji: '👻',
     translations: {
-      en: {
-        title: 'RetroHaunt',
-        description: 'A retro-styled action game where you hunt ghosts in a haunted mansion. Explore rooms, avoid traps, and capture all spirits to escape the nightmare.',
-        instructions: 'Use arrow keys or WASD to move your character. Walk through rooms to find ghosts. Press space to capture ghosts. Avoid ghost attacks and collect items to help you.',
-      },
-      es: {
-        title: 'RetroHaunt',
-        description: 'Un juego de acción de estilo retro donde cazas fantasmas en una mansión embrujada. Explora habitaciones, evita trampas y captura todos los espíritus para escapar de la pesadilla.',
-        instructions: 'Usa las teclas de dirección o WASD para moverte. Camina por las habitaciones para encontrar fantasmas. Presiona espacio para capturarlos. Evita sus ataques.',
-      },
-      pt: {
-        title: 'RetroHaunt',
-        description: 'Um jogo de ação estilo retro onde você caça fantasmas em uma mansão assombrada. Explore cômodos, evite armadilhas e capture todos os espíritos para escapar do pesadelo.',
-        instructions: 'Use as teclas de seta ou WASD para mover. Ande pelos cômodos para encontrar fantasmas. Pressione espaço para capturá-los. Evite ataques de fantasmas.',
-      },
+      en: { title: 'RetroHaunt', description: 'A retro-styled action game where you hunt ghosts in a haunted mansion.', instructions: 'Use arrow keys or WASD to move. Press space to capture ghosts. Avoid ghost attacks.' },
+      es: { title: 'RetroHaunt', description: 'Un juego de acción retro donde cazas fantasmas en una mansión embrujada.', instructions: 'Usa las teclas de dirección o WASD para moverte. Presiona espacio para capturar fantasmas.' },
+      pt: { title: 'RetroHaunt', description: 'Um jogo de ação retro onde você caça fantasmas em uma mansão assombrada.', instructions: 'Use as teclas de seta ou WASD para mover. Pressione espaço para capturar fantasmas.' },
     },
   },
   {
@@ -145,21 +293,9 @@ export const games: Game[] = [
     iframeUrl: '/games/xx142-b2exe/index.html',
     thumbnailEmoji: '🤖',
     translations: {
-      en: {
-        title: 'xx142-b2.exe',
-        description: 'A sci-fi action game where you control a rogue AI escaping containment. Fight through security systems, solve puzzles, and break free in this cyberpunk adventure.',
-        instructions: 'Use arrow keys to move and navigate. Press Z to interact or shoot. Collect data fragments to upgrade your abilities. Survive the security protocols and reach the exit.',
-      },
-      es: {
-        title: 'xx142-b2.exe',
-        description: 'Un juego de acción de ciencia ficción donde controlas una IA rebelde que escapa de su confinamiento. Combate sistemas de seguridad, resuelve puzzles y libérate.',
-        instructions: 'Usa las teclas de dirección para moverte. Presiona Z para interactuar o disparar. Colecciona fragmentos de datos para mejorar tus habilidades. Sobrevive a los protocolos de seguridad.',
-      },
-      pt: {
-        title: 'xx142-b2.exe',
-        description: 'Um jogo de ação de ficção científica onde você controla uma IA rebelde escapando do confinamento. Lute através de sistemas de segurança, resolva quebra-cabeças e se liberte.',
-        instructions: 'Use as teclas de seta para mover. Pressione Z para interagir ou atirar. Colete fragmentos de dados para melhorar suas habilidades. Sobreviva aos protocolos de segurança.',
-      },
+      en: { title: 'xx142-b2.exe', description: 'A sci-fi action game where you play as a rogue AI escaping containment.', instructions: 'Use arrow keys to move. Press Z to interact or shoot. Survive security protocols and reach the exit.' },
+      es: { title: 'xx142-b2.exe', description: 'Un juego de acción sci-fi donde eres una IA rebelde escapando de su confinamiento.', instructions: 'Usa las teclas de dirección para moverte. Presiona Z para interactuar o disparar.' },
+      pt: { title: 'xx142-b2.exe', description: 'Um jogo de ação sci-fi onde você é uma IA rebelde escapando do confinamento.', instructions: 'Use as teclas de seta para mover. Pressione Z para interagir ou atirar.' },
     },
   },
 ];
