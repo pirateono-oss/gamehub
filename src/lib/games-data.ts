@@ -464,4 +464,70 @@ export const games: Game[] = [
       pt: { title: 'Zombie Rush', description: 'Sobreviva ao apocalipse zumbi! Atire em ondas de zumbis e fique vivo o máximo possível.', instructions: 'Use o mouse para mirar e clique para atirar. Mova-se com WASD ou setas.' },
     },
   },
+  {
+    slug: 'bad-ice-cream-2',
+    category: 'casual',
+    iframeUrl: '/games/badicecream2/index.html',
+    thumbnailEmoji: '🍦',
+    translations: {
+      en: { title: 'Bad Ice Cream 2', description: 'Collect ice cream ingredients while avoiding the monsters! A fun 2D arcade game.', instructions: 'Use arrow keys to move. Collect all fruits to complete the level. Avoid monsters or trap them in walls.' },
+      es: { title: 'Bad Ice Cream 2', description: '¡Colecciona ingredientes de helado mientras evitas monstruos! Un divertido juego arcade 2D.', instructions: 'Usa las flechas para moverte. Colecciona todas las frutas para completar el nivel.' },
+      pt: { title: 'Bad Ice Cream 2', description: 'Colete ingredientes de sorvete enquanto evita monstros! Um divertido jogo arcade 2D.', instructions: 'Use as setas para mover. Colete todas as frutas para completar o nível.' },
+    },
+  },
+  {
+    slug: 'beta-1-3',
+    category: 'casual',
+    iframeUrl: '/games/Beta_1.3/index.html',
+    thumbnailEmoji: '⛏️',
+    translations: {
+    en: { title: 'Minecraft Beta 1.3', description: 'Explore a blocky world in this classic Minecraft Beta 1.3 recreation. Build, mine, and survive!', instructions: 'WASD to move, space to jump. Left click to break blocks, right click to place. E to open inventory.' },
+      es: { title: 'Minecraft Beta 1.3', description: 'Explora un mundo de bloques en esta clásica recreación de Minecraft Beta 1.3. ¡Construye, mina y sobrevive!', instructions: 'WASD para moverte, espacio para saltar. Click izquierdo para romper bloques.' },
+      pt: { title: 'Minecraft Beta 1.3', description: 'Explore um mundo de blocos nesta clássica recriação do Minecraft Beta 1.3. Construa, minere e sobreviva!', instructions: 'WASD para mover, espaço para pular. Clique esquerdo para quebrar blocos.' },
+    },
+  },
+  {
+    slug: 'indev',
+    category: 'casual',
+    iframeUrl: '/games/Indev/index.html',
+    thumbnailEmoji: '🟫',
+    translations: {
+      en: { title: 'Minecraft Indev', description: 'An early Minecraft Indev version recreation. Experience the origins of the block-building phenomenon!', instructions: 'WASD to move, space to jump. Click to break and place blocks. Explore the infinite world.' },
+      es: { title: 'Minecraft Indev', description: 'Una recreación de la versión Indev de Minecraft. ¡Experimenta los orígenes del fenómeno de construcción de bloques!', instructions: 'WASD para moverte, espacio para saltar. Haz clic para romper y colocar bloques.' },
+      pt: { title: 'Minecraft Indev', description: 'Uma recriação da versão Indev do Minecraft. Experimente as origens do fenômeno de construção de blocos!', instructions: 'WASD para mover, espaço para pular. Clique para quebrar e colocar blocos.' },
+    },
+  },
+  {
+    slug: 'clash-of-vikings',
+    category: 'action',
+    iframeUrl: '/games/clashofvikings/index.html',
+    thumbnailEmoji: '🛡️',
+    translations: {
+      en: { title: 'Clash of Vikings', description: 'Lead your Viking warriors into battle! Build your army and conquer enemy territories.', instructions: 'Click to send your warriors. Upgrade your units between rounds. Defeat all enemies to win.' },
+      es: { title: 'Clash of Vikings', description: '¡Lidera a tus guerreros vikingos a la batalla! Construye tu ejército y conquista territorios enemigos.', instructions: 'Haz clic para enviar a tus guerreros. Mejora tus unidades entre rondas.' },
+      pt: { title: 'Clash of Vikings', description: 'Lidere seus guerreiros vikings na batalha! Construa seu exército e conquiste territórios inimigos.', instructions: 'Clique para enviar seus guerreiros. Melhore suas unidades entre as rodadas.' },
+    },
+  },
+  {
+    slug: 'sand-game',
+    category: 'casual',
+    iframeUrl: '/games/sandgame/index.html',
+    thumbnailEmoji: '🏖️',
+    translations: {
+      en: { title: 'Sand Game', description: 'A relaxing sand physics simulation. Draw different materials and watch them interact!', instructions: 'Click and drag to draw sand. Different colors create different materials. Watch the physics simulation at work.' },
+      es: { title: 'Sand Game', description: 'Una relajante simulación de física de arena. ¡Dibuja diferentes materiales y mira cómo interactúan!', instructions: 'Haz clic y arrastra para dibujar arena. Diferentes colores crean diferentes materiales.' },
+      pt: { title: 'Sand Game', description: 'Uma relaxante simulação de física de areia. Desenhe diferentes materiais e veja-os interagir!', instructions: 'Clique e arraste para desenhar areia. Cores diferentes criam materiais diferentes.' },
+    },
+  },
+  {
+    slug: 'territorial-io',
+    category: 'strategy',
+    iframeUrl: '/games/territorialio/index.html',
+    thumbnailEmoji: '🗺️',
+    translations: {
+      en: { title: 'Territorial.io', description: 'Expand your territory by conquering neighboring lands. A strategic battle for dominance!', instructions: 'Click on your territory then click on an adjacent enemy territory to attack. Build up your army to conquer larger areas.' },
+      es: { title: 'Territorial.io', description: 'Expande tu territorio conquistando tierras vecinas. ¡Una batalla estratégica por el dominio!', instructions: 'Haz clic en tu territorio y luego en un territorio enemigo adyacente para atacar.' },
+      pt: { title: 'Territorial.io', description: 'Expanda seu território conquistando terras vizinhas. Uma batalha estratégica pelo domínio!', instructions: 'Clique em seu território e depois em um território inimigo adjacente para atacar.' },
+    },
+  },
 ];
