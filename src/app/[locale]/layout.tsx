@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import '../globals.css';
 import { Header } from '@/components/header';
@@ -34,7 +35,12 @@ export default async function LocaleLayout({
         <main className="min-h-[calc(100vh-64px)]">{children}</main>
         <footer className="border-t border-border bg-card py-6 text-center text-sm text-muted-foreground">
           <div className="mx-auto max-w-7xl px-4">
-            <p>&copy; 2024 {dict.siteTitle}. {dict.allRightsReserved}</p>
+            <div className="mb-2 flex items-center justify-center gap-4">
+              <Link href={`/${locale}`} className="hover:text-foreground transition-colors">{dict.home}</Link>
+              <Link href={`/${locale}/about`} className="hover:text-foreground transition-colors">About</Link>
+              <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">Privacy</Link>
+            </div>
+            <p>&copy; 2025 {dict.siteTitle}. {dict.allRightsReserved}</p>
           </div>
         </footer>
       </body>
