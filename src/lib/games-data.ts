@@ -530,4 +530,81 @@ export const games: Game[] = [
       pt: { title: 'Territorial.io', description: 'Expanda seu território conquistando terras vizinhas. Uma batalha estratégica pelo domínio!', instructions: 'Clique em seu território e depois em um território inimigo adjacente para atacar.' },
     },
   },
+  {
+    slug: 'bubble-shooter',
+    category: 'puzzle',
+    iframeUrl: '/games/bubbleshooter/index.html',
+    thumbnailEmoji: '🫧',
+    translations: {
+      en: { title: 'Bubble Shooter', description: 'Aim and shoot bubbles to match 3 or more! A classic bubble popping puzzle game.', instructions: 'Aim with your mouse, click to shoot. Match 3 or more bubbles of the same color to pop them. Clear all bubbles to win.' },
+      es: { title: 'Bubble Shooter', description: '¡Apunta y dispara burbujas para juntar 3 o más! Un clásico juego de puzzle de burbujas.', instructions: 'Apunta con el ratón, haz clic para disparar. Junta 3 o más burbujas del mismo color para explotarlas.' },
+      pt: { title: 'Bubble Shooter', description: 'Mire e atire bolhas para combinar 3 ou mais! Um clássico jogo de quebra-cabeça de bolhas.', instructions: 'Mire com o mouse, clique para atirar. Combine 3 ou mais bolhas da mesma cor para estourá-las.' },
+    },
+  },
+  {
+    slug: 'circlo-o-2',
+    category: 'puzzle',
+    iframeUrl: '/games/circloO2/index.html',
+    thumbnailEmoji: '⭕',
+    translations: {
+      en: { title: 'circloO 2', description: 'Navigate a ball through circular mazes! A physics-based puzzle platformer.', instructions: 'Use arrow keys or drag to roll the ball. Navigate through the circular obstacles. Reach the goal to advance.' },
+      es: { title: 'circloO 2', description: '¡Navega una pelota a través de laberintos circulares! Un puzzle de plataformas basado en física.', instructions: 'Usa las flechas o arrastra para rodar la pelota. Navega a través de los obstáculos circulares.' },
+      pt: { title: 'circloO 2', description: 'Navegue uma bola através de labirintos circulares! Um puzzle de plataforma baseado em física.', instructions: 'Use as setas ou arraste para rolar a bola. Navegue através dos obstáculos circulares.' },
+    },
+  },
+  {
+    slug: 'dadish-3',
+    category: 'action',
+    iframeUrl: '/games/dadish3/index.html',
+    thumbnailEmoji: '🥦',
+    translations: {
+      en: { title: "Dadish 3", description: "A radish dad on a quest to find his children! A charming platformer adventure.", instructions: "Use arrow keys to move and jump. Collect items and defeat enemies. Reach the end of each level." },
+      es: { title: "Dadish 3", description: "¡Un padre rábano en una búsqueda para encontrar a sus hijos! Una encantadora aventura de plataformas.", instructions: "Usa las flechas para moverte y saltar. Colecciona objetos y derrota enemigos." },
+      pt: { title: "Dadish 3", description: "Um rabanete pai em uma missão para encontrar seus filhos! Uma charmosa aventura de plataforma.", instructions: "Use as setas para mover e pular. Colete itens e derrote inimigos." },
+    },
+  },
+  {
+    slug: 'iron-snout',
+    category: 'action',
+    iframeUrl: '/games/ironsnout/index.html',
+    thumbnailEmoji: '🐗',
+    translations: {
+      en: { title: 'Iron Snout', description: 'Fight off waves of wolves and pigs as a skilled pig! A fast-paced beat-em-up action game.', instructions: 'Use arrow keys or swipe to attack. Press towards an enemy to punch, away to kick. Survive as long as possible!' },
+      es: { title: 'Iron Snout', description: '¡Defiéndete de oleadas de lobos y cerdos como un cerdo hábil! Un juego de acción rápida.', instructions: 'Usa las flechas para atacar. Presiona hacia un enemigo para golpear, lejos para patear.' },
+      pt: { title: 'Iron Snout', description: 'Lute contra ondas de lobos e porcos como um porco habilidoso! Um jogo de ação rápida.', instructions: 'Use as setas para atacar. Pressione em direção a um inimigo para socar.' },
+    },
+  },
+  {
+    slug: 'ovo',
+    category: 'action',
+    iframeUrl: '/games/ovo/index.html',
+    thumbnailEmoji: '🥚',
+    translations: {
+      en: { title: 'OvO', description: 'A minimalist platformer with precise controls. Run, jump, and slide through challenging levels.', instructions: 'Use arrow keys to move. Press up to jump, down to slide through gaps. Master each level\'s timing.' },
+      es: { title: 'OvO', description: 'Un plataformas minimalista con controles precisos. Corre, salta y deslízate a través de niveles desafiantes.', instructions: 'Usa las flechas para moverte. Presiona arriba para saltar, abajo para deslizarte.' },
+      pt: { title: 'OvO', description: 'Um plataforma minimalista com controles precisos. Corra, pule e deslize através de níveis desafiadores.', instructions: 'Use as setas para mover. Pressione cima para pular, baixo para deslizar.' },
+    },
+  },
+  {
+    slug: 'temple-of-boom',
+    category: 'action',
+    iframeUrl: '/games/templeofboom/index.html',
+    thumbnailEmoji: '🏛️',
+    translations: {
+      en: { title: 'Temple of Boom', description: 'Run through ancient temples avoiding traps and collecting treasures! An endless runner adventure.', instructions: 'Swipe or use arrow keys to move left/right and jump. Dodge obstacles and collect coins.' },
+      es: { title: 'Temple of Boom', description: '¡Corre a través de templos antiguos evitando trampas y coleccionando tesoros! Una aventura sin fin.', instructions: 'Desliza o usa las flechas para moverte izquierda/derecha y saltar. Esquiva obstáculos.' },
+      pt: { title: 'Temple of Boom', description: 'Corra através de templos antigos evitando armadilhas e coletando tesouros! Uma aventura sem fim.', instructions: 'Deslize ou use as setas para mover esquerda/direita e pular. Desvie de obstáculos.' },
+    },
+  },
+  {
+    slug: 'eggy-car',
+    category: 'casual',
+    iframeUrl: '/games/eggycar/index.html',
+    thumbnailEmoji: '🥚',
+    translations: {
+      en: { title: 'Eggy Car', description: 'Drive a car while carrying a fragile egg! A fun physics-based driving game.', instructions: 'Use arrow keys to drive. Balance the car to keep the egg from falling. Reach the finish line intact!' },
+      es: { title: 'Eggy Car', description: '¡Conduce un coche mientras llevas un huevo frágil! Un divertido juego de conducción basado en física.', instructions: 'Usa las flechas para conducir. Equilibra el coche para que el huevo no se caiga.' },
+      pt: { title: 'Eggy Car', description: 'Dirija um carro enquanto carrega um ovo frágil! Um divertido jogo de direção baseado em física.', instructions: 'Use as setas para dirigir. Equilibre o carro para evitar que o ovo caia.' },
+    },
+  },
 ];
