@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 import '../globals.css';
 import { Header } from '@/components/header';
@@ -29,11 +30,10 @@ export default async function LocaleLayout({
   const dict = getDictionary(locale as Locale);
 
   return (
-    <html lang={locale}>
-      <body className="font-sans antialiased">
-        <Header locale={locale as Locale} dict={dict} />
-        <main className="min-h-[calc(100vh-64px)]">{children}</main>
-        <footer className="border-t border-border bg-card py-6 text-center text-sm text-muted-foreground">
+    <>
+      <Header locale={locale as Locale} dict={dict} />
+      <main className="min-h-[calc(100vh-64px)]">{children}</main>
+      <footer className="border-t border-border bg-card py-6 text-center text-sm text-muted-foreground">
           <div className="mx-auto max-w-7xl px-4">
             <div className="mb-2 flex items-center justify-center gap-4">
               <Link href={`/${locale}`} className="hover:text-foreground transition-colors">{dict.home}</Link>
@@ -43,7 +43,6 @@ export default async function LocaleLayout({
             <p>&copy; 2025 {dict.siteTitle}. {dict.allRightsReserved}</p>
           </div>
         </footer>
-      </body>
-    </html>
-  );
+        </>
+        );
 }
