@@ -223,17 +223,6 @@ export const games: Game[] = [
     },
   },
   {
-    slug: 'bitlife',
-    category: 'casual',
-    iframeUrl: '/games/bitlife/index.html',
-    thumbnailEmoji: '🧬',
-    translations: {
-      en: { title: 'BitLife', description: 'A life simulation game where your choices shape your character\'s destiny. Career, relationships, and more!', instructions: 'Tap or click to make choices. Each decision affects your character\'s stats like health, happiness, and wealth.' },
-      es: { title: 'BitLife', description: 'Un juego de simulación de vida donde tus decisiones moldean el destino de tu personaje.', instructions: 'Toca o haz clic para tomar decisiones. Cada decisión afecta las estadísticas de tu personaje.' },
-      pt: { title: 'BitLife', description: 'Um jogo de simulação de vida onde suas escolhas moldam o destino do seu personagem.', instructions: 'Toque ou clique para fazer escolhas. Cada decisão afeta as estatísticas do seu personagem.' },
-    },
-  },
-  {
     slug: 'evil-glitch',
     category: 'action',
     iframeUrl: '/games/evilGlitch/index.html',
