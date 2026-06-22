@@ -15,7 +15,24 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = getDictionary(locale as Locale);
-  return { title: dict.siteTitle, description: dict.siteTagline };
+  const seoDesc: Record<string, string> = {
+    en: 'Play 48+ free HTML5 games online! No downloads, no registration. Puzzle, action, sports, strategy and casual games updated regularly.',
+    es: '¡Juega 48+ juegos HTML5 gratis online! Sin descargas, sin registro. Juegos de puzzle, acción, deportes, estrategia y casuales actualizados regularmente.',
+    pt: 'Jogue 48+ jogos HTML5 grátis online! Sem downloads, sem registro. Jogos de quebra-cabeça, ação, esportes, estratégia e casuais atualizados regularmente.',
+  };
+  return {
+    title: dict.siteTitle,
+    description: seoDesc[locale] || seoDesc.en,
+    keywords: 'juegos gratis online, jogos grátis, free online games, html5 games, juegos html5, jogos html5',
+    openGraph: { title: dict.siteTitle, description: seoDesc[locale] || seoDesc.en, type: 'website' },
+    alternates: {
+      languages: {
+        'en': '/en',
+        'es': '/es',
+        'pt': '/pt',
+      },
+    },
+  };
 }
 
 export default async function LocaleLayout({
