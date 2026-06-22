@@ -29,6 +29,7 @@ export type GameTranslation = {
   title: string;
   description: string;
   instructions: string;
+  guide?: string;
 };
 
 export type Game = {

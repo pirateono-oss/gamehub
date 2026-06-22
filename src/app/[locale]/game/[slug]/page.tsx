@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidLocale, getDictionary } from '@/lib/i18n';
-import { getGameBySlug, getGameTitle, getGameDescription, getGameInstructions, getCategoryLabel, getRelatedGames, categoryColors, getAllGames } from '@/lib/game-utils';
+import { getGameBySlug, getGameTitle, getGameDescription, getGameInstructions, getGameGuide, getCategoryLabel, getRelatedGames, categoryColors, getAllGames } from '@/lib/game-utils';
 import type { Locale } from '@/lib/types';
 import { AdPlaceholder } from '@/components/ad-placeholder';
 import { GameGrid } from '@/components/game-grid';
@@ -45,6 +45,7 @@ export default async function GamePage({ params }: GamePageProps) {
   const title = getGameTitle(game, localeTyped);
   const description = getGameDescription(game, localeTyped);
   const instructions = getGameInstructions(game, localeTyped);
+  const guide = getGameGuide(game, localeTyped);
   const categoryLabel = getCategoryLabel(game.category, localeTyped);
   const relatedGames = getRelatedGames(game, 5);
   const colors = categoryColors[game.category];
@@ -72,6 +73,14 @@ export default async function GamePage({ params }: GamePageProps) {
             <h2 className="mb-2 flex items-center gap-2 text-lg font-semibold text-foreground"><Joystick className="h-5 w-5 text-primary" />{dict.controls}</h2>
             <p className="leading-relaxed text-muted-foreground">{instructions}</p>
           </section>
+          {guide && (
+          <section className="mb-6">
+            <h2 className="mb-2 flex items-center gap-2 text-lg font-semibold text-foreground">📖 Guide & Tips</h2>
+            <div className="rounded-lg border border-primary/20 bg-primary/5 p-4 leading-relaxed text-foreground whitespace-pre-line">
+              {guide.split('**').map((part, i) => i % 2 === 1 ? <strong key={i}>{part}</strong> : part)}
+            </div>
+          </section>
+          )}
           <div className="mb-6 lg:hidden"><AdPlaceholder size="interstitial" label={dict.adPlaceholder} /></div>
         </div>
         <aside className="w-full shrink-0 space-y-4 lg:w-72">

@@ -448,9 +448,12 @@ export const games: Game[] = [
     iframeUrl: '/games/worldshardestgame/index.html',
     thumbnailEmoji: '🏆',
     translations: {
-      en: { title: 'World\'s Hardest Game', description: 'Navigate a red square through levels filled with moving blue balls. It\'s as hard as it sounds!', instructions: 'Use arrow keys to move your red square. Reach the green zone to complete each level. Don\'t touch the blue balls!' },
-      es: { title: 'World\'s Hardest Game', description: 'Navega un cuadrado rojo a través de niveles llenos de bolas azules en movimiento. ¡Es tan difícil como suena!', instructions: 'Usa las flechas para mover tu cuadrado rojo. Llega a la zona verde para completar cada nivel.' },
-      pt: { title: 'World\'s Hardest Game', description: 'Navegue um quadrado vermelho através de níveis cheios de bolas azuis em movimento. É tão difícil quanto parece!', instructions: 'Use as setas para mover seu quadrado vermelho. Alcance a zona verde para completar cada nível.' },
+      en: { title: 'World\'s Hardest Game', description: 'Navigate a red square through levels filled with moving blue balls. It\'s as hard as it sounds!', instructions: 'Use arrow keys to move your red square. Reach the green zone to complete each level. Don\'t touch the blue balls!',
+        guide: '**Level 1-5 Beginner Tips:** Study enemy patterns before moving. Wait at the edge of each obstacle and time your dash between enemies. Short, precise movements work better than rushing. Use the walls as safe spots to catch your breath.\n\n**Advanced Strategy:** Memorize enemy spawn points. The game is 100% pattern-based - no randomness. Each failure teaches you where NOT to be. Take 10 seconds to observe before your first move on each new level.' },
+      es: { title: 'World\'s Hardest Game', description: 'Navega un cuadrado rojo a través de niveles llenos de bolas azules en movimiento. ¡Es tan difícil como suena!', instructions: 'Usa las flechas para mover tu cuadrado rojo. Llega a la zona verde para completar cada nivel.',
+        guide: '**Consejos Niveles 1-5:** Estudia los patrones enemigos antes de moverte. Espera al borde de cada obstáculo y cruza entre enemigos con precisión. Movimientos cortos y precisos funcionan mejor que apresurarse.\n\n**Estrategia Avanzada:** Memoriza los puntos de aparición. El juego es 100% basado en patrones - no hay aleatoriedad. Tómate 10 segundos para observar antes de moverte.' },
+      pt: { title: 'World\'s Hardest Game', description: 'Navegue um quadrado vermelho através de níveis cheios de bolas azuis em movimento. É tão difícil quanto parece!', instructions: 'Use as setas para mover seu quadrado vermelho. Alcance a zona verde para completar cada nível.',
+        guide: '**Dicas Níveis 1-5:** Estude os padrões inimigos antes de se mover. Espere na borda de cada obstáculo e cruze entre inimigos com precisão. Movimentos curtos e precisos são melhores que pressa.\n\n**Estratégia Avançada:** Memorize os pontos de aparecimento. O jogo é 100% baseado em padrões - não há aleatoriedade.' },
     },
   },
   {

@@ -8,6 +8,7 @@ export function getGamesByCategory(category: Category): Game[] { return games.fi
 export function getGameTitle(game: Game, locale: Locale): string { return game.translations[locale]?.title ?? game.translations.en.title; }
 export function getGameDescription(game: Game, locale: Locale): string { return game.translations[locale]?.description ?? game.translations.en.description; }
 export function getGameInstructions(game: Game, locale: Locale): string { return game.translations[locale]?.instructions ?? game.translations.en.instructions; }
+export function getGameGuide(game: Game, locale: Locale): string | undefined { return game.translations[locale]?.guide ?? game.translations.en.guide; }
 export function getCategoryLabel(category: Category, locale: Locale): string { return getDictionary(locale).categories[category]; }
 export function getRelatedGames(game: Game, count: number = 6): Game[] {
   const sameCategory = games.filter((g) => g.category === game.category && g.slug !== game.slug);
