@@ -2,6 +2,17 @@ import type { Game } from './types';
 
 export const games: Game[] = [
   {
+    slug: 'tetris',
+    category: 'puzzle',
+    iframeUrl: '/games/tetris/index.html',
+    thumbnailEmoji: '🧱',
+    translations: {
+      en: { title: 'Tetris', description: 'The classic block-stacking puzzle game! Arrange falling tetrominoes to clear lines and score points.', instructions: 'Use arrow keys: left/right to move, up to rotate, down to speed up. Clear complete rows to score points.' },
+      es: { title: 'Tetris', description: '¡El clásico juego de puzzle de bloques! Organiza tetrominós que caen para limpiar líneas y ganar puntos.', instructions: 'Usa las flechas: izquierda/derecha para mover, arriba para rotar, abajo para acelerar.' },
+      pt: { title: 'Tetris', description: 'O clássico jogo de puzzle de blocos! Organize tetrominós que caem para limpar linhas e ganhar pontos.', instructions: 'Use as setas: esquerda/direita para mover, cima para girar, baixo para acelerar.' },
+    },
+  },
+  {
     slug: '2048',
     category: 'puzzle',
     iframeUrl: '/games/2048/index.html',
