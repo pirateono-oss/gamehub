@@ -610,4 +610,81 @@ export const games: Game[] = [
       pt: { title: 'Eggy Car', description: 'Dirija um carro enquanto carrega um ovo frágil! Um divertido jogo de direção baseado em física.', instructions: 'Use as setas para dirigir. Equilibre o carro para evitar que o ovo caia.' },
     },
   },
+  {
+    slug: 'brick-breaker',
+    category: 'action',
+    iframeUrl: '/games/brick-breaker/index.html',
+    thumbnailEmoji: '🧱',
+    translations: {
+      en: { title: 'Brick Breaker', description: 'Break all the bricks with your ball and paddle! A classic arcade breakout game.', instructions: 'Move mouse or use arrow keys to control the paddle. Bounce the ball to break all bricks.' },
+      es: { title: 'Brick Breaker', description: '¡Rompe todos los ladrillos con tu pelota y paleta! Un clásico juego arcade.', instructions: 'Mueve el ratón o usa las flechas para controlar la paleta.' },
+      pt: { title: 'Brick Breaker', description: 'Quebre todos os tijolos com sua bola e raquete! Um clássico jogo arcade.', instructions: 'Mova o mouse ou use as setas para controlar a raquete.' },
+    },
+  },
+  {
+    slug: 'connect-the-pipes',
+    category: 'puzzle',
+    iframeUrl: '/games/connect-the-pipes/index.html',
+    thumbnailEmoji: '🔧',
+    translations: {
+      en: { title: 'Connect the Pipes', description: 'Rotate pipe pieces to connect them all! A relaxing plumbing puzzle.', instructions: 'Click pipe pieces to rotate. Connect all pipes to form a complete path.' },
+      es: { title: 'Connect the Pipes', description: '¡Gira las piezas de tubería para conectarlas! Un relajante puzzle.', instructions: 'Haz clic en las tuberías para girarlas. Conecta todas para formar un camino.' },
+      pt: { title: 'Connect the Pipes', description: 'Gire as peças de cano para conectá-las! Um relaxante quebra-cabeça.', instructions: 'Clique nos canos para girá-los. Conecte todos para formar um caminho.' },
+    },
+  },
+  {
+    slug: 'html-tower-defence',
+    category: 'strategy',
+    iframeUrl: '/games/html-tower-defence/index.html',
+    thumbnailEmoji: '🏗️',
+    translations: {
+      en: { title: 'HTML Tower Defence', description: 'Build towers to defend against waves of enemies! Classic tower defense.', instructions: 'Click to place towers along the enemy path. Upgrade them to survive stronger waves.' },
+      es: { title: 'HTML Tower Defence', description: '¡Construye torres para defenderte de oleadas de enemigos! Defensa de torres clásica.', instructions: 'Coloca torres en el camino. Los enemigos vienen en oleadas. Mejora tus torres.' },
+      pt: { title: 'HTML Tower Defence', description: 'Construa torres para se defender de ondas de inimigos! Defesa de torre clássica.', instructions: 'Coloque torres ao longo do caminho. Melhore-as para sobreviver a ondas mais fortes.' },
+    },
+  },
+  {
+    slug: 'maze-game',
+    category: 'puzzle',
+    iframeUrl: '/games/maze/index.html',
+    thumbnailEmoji: '🌀',
+    translations: {
+      en: { title: 'Maze Game', description: 'Navigate through a maze to reach the exit! A classic puzzle.', instructions: 'Use arrow keys to move. Find your way through the maze to the exit.' },
+      es: { title: 'Maze Game', description: '¡Navega por un laberinto hasta la salida! Un clásico puzzle.', instructions: 'Usa las flechas para moverte. Encuentra el camino a través del laberinto.' },
+      pt: { title: 'Maze Game', description: 'Navegue por um labirinto até a saída! Um clássico quebra-cabeça.', instructions: 'Use as setas para mover. Encontre o caminho através do labirinto.' },
+    },
+  },
+  {
+    slug: 'mini-car-racing',
+    category: 'sports',
+    iframeUrl: '/games/mini_car_game/index.html',
+    thumbnailEmoji: '🏎️',
+    translations: {
+      en: { title: 'Mini Car Racing', description: 'Race your mini car around the track! Fun driving game.', instructions: 'Use arrow keys to drive. Steer, accelerate, and brake. Complete laps.' },
+      es: { title: 'Mini Car Racing', description: '¡Corre con tu mini coche por la pista! Divertido juego de conducción.', instructions: 'Usa las flechas para conducir. Gira, acelera y frena. Completa vueltas.' },
+      pt: { title: 'Mini Car Racing', description: 'Corra com seu mini carro pela pista! Divertido jogo de direção.', instructions: 'Use as setas para dirigir. Vire, acelere e freie. Complete voltas.' },
+    },
+  },
+  {
+    slug: 'snake',
+    category: 'casual',
+    iframeUrl: '/games/snakegame/index.html',
+    thumbnailEmoji: '🐍',
+    translations: {
+      en: { title: 'Snake', description: 'The classic snake game! Eat food to grow longer without hitting walls.', instructions: 'Use arrow keys to control the snake. Eat food to grow. Don\'t hit walls or your tail.' },
+      es: { title: 'Snake', description: '¡El clásico juego de la serpiente! Come comida para crecer sin chocar.', instructions: 'Usa las flechas para controlar la serpiente. Come comida para crecer.' },
+      pt: { title: 'Snake', description: 'O clássico jogo da cobra! Coma comida para crescer sem bater.', instructions: 'Use as setas para controlar a cobra. Coma comida para crescer.' },
+    },
+  },
+  {
+    slug: 'tic-tac-toe',
+    category: 'puzzle',
+    iframeUrl: '/games/tic-tac-toe/index.html',
+    thumbnailEmoji: '❌',
+    translations: {
+      en: { title: 'Tic Tac Toe', description: 'The classic three-in-a-row game! Play against the computer.', instructions: 'Click an empty square to place your mark. Get three in a row to win!' },
+      es: { title: 'Tic Tac Toe', description: '¡El clásico juego de tres en raya! Juega contra la computadora.', instructions: 'Haz clic en un cuadrado para colocar tu marca. ¡Tres en línea para ganar!' },
+      pt: { title: 'Tic Tac Toe', description: 'O clássico jogo da velha! Jogue contra o computador.', instructions: 'Clique em um quadrado para colocar sua marca. Três em linha para vencer!' },
+    },
+  },
 ];
