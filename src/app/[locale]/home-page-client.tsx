@@ -16,7 +16,7 @@ interface HomePageClientProps {
   searchQuery: string;
 }
 
-export function HomePageClient({ locale, dict, games, activeCategory, searchQuery }: HomePageClientProps) {
+export function HomePageClient({ locale, dict, games: allGames, activeCategory, searchQuery }: HomePageClientProps) {
   const [localSearch, setLocalSearch] = useState(searchQuery);
   const router = useRouter();
 
@@ -29,6 +29,15 @@ export function HomePageClient({ locale, dict, games, activeCategory, searchQuer
     router.push(`/${locale}${query ? `?${query}` : ''}`);
   };
 
+  // Real-time client-side filtering as user types
+  const filteredGames = localSearch
+    ? allGames.filter((g) => {
+        const title = g.translations[locale]?.title ?? g.translations.en.title;
+        const query = localSearch.toLowerCase();
+        return title.toLowerCase().includes(query);
+      })
+    : allGames;
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-6">
       <section className="mb-8 text-center">
@@ -37,7 +46,7 @@ export function HomePageClient({ locale, dict, games, activeCategory, searchQuer
           {dict.siteTitle}
         </h1>
         <p className="mb-6 text-muted-foreground">{dict.siteTagline}</p>
-        <form onSubmit={handleSearch} className="mx-auto max-w-lg md:hidden">
+        <form onSubmit={handleSearch} className="mx-auto max-w-lg">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <input type="text" value={localSearch} onChange={(e) => setLocalSearch(e.target.value)} placeholder={dict.searchPlaceholder}
@@ -51,9 +60,9 @@ export function HomePageClient({ locale, dict, games, activeCategory, searchQuer
       <section>
         <h2 className="mb-4 text-lg font-semibold text-foreground">
           {activeCategory === 'all' ? dict.allGames : dict.categories[activeCategory as Category]}
-          <span className="ml-2 text-sm font-normal text-muted-foreground">({games.length})</span>
+          <span className="ml-2 text-sm font-normal text-muted-foreground">({filteredGames.length})</span>
         </h2>
-        <GameGrid games={games} locale={locale} emptyMessage={dict.noResults} />
+        <GameGrid games={filteredGames} locale={locale} emptyMessage={dict.noResults} />
       </section>
     </div>
   );
