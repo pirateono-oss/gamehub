@@ -87,10 +87,34 @@ export default async function GamePage({ params }: GamePageProps) {
           <AdPlaceholder size="sidebar" label={dict.adPlaceholder} />
         </aside>
       </div>
+      
+      {/* FAQ */}
+      <section className="mt-8 rounded-xl border border-border bg-card p-6">
+        <h2 className="mb-4 text-xl font-bold text-foreground">❓ FAQ</h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="font-semibold text-foreground">🎮 How to play {title}?</h3>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{instructions} The game starts immediately when the page loads. Use touch or mouse controls if you are on a mobile device.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground">📱 Can I play on mobile?</h3>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Yes! All our games are HTML5 and work perfectly on smartphones and tablets. Just open the page in your browser and start playing.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground">🆓 Is it free?</h3>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Absolutely. All games on {dict.siteTitle} are completely free to play. No downloads, no registration required. Just click and play!</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground">🌐 Why do some games have ads?</h3>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">We display ads to keep the site running and maintain our collection of free games. Ads help us pay for hosting and add more games regularly.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-8">
         <h2 className="mb-4 text-xl font-bold text-foreground">{dict.relatedGames}</h2>
         <AdPlaceholder size="banner" label={dict.adPlaceholder} className="mb-6" />
-        <GameGrid games={relatedGames} locale={localeTyped} emptyMessage={dict.noResults} />
+        <GameGrid games={relatedGames} locale={localeTyped} dict={dict} emptyMessage={dict.noResults} />
       </section>
     </div>
   );

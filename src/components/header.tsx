@@ -63,6 +63,11 @@ export function Header({ locale, dict }: HeaderProps) {
                 className="w-full rounded-lg border border-border bg-background py-2 pl-10 pr-4 text-sm focus:border-primary focus:outline-none" />
             </div>
           </form>
+          <div className="flex flex-col gap-2 text-sm">
+            <Link href={`/${locale}/about`} onClick={() => setMobileMenuOpen(false)} className="rounded-lg px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground">About</Link>
+            <Link href={`/${locale}/privacy`} onClick={() => setMobileMenuOpen(false)} className="rounded-lg px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground">Privacy</Link>
+            <Link href={`/${locale}/contact`} onClick={() => setMobileMenuOpen(false)} className="rounded-lg px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground">Contact</Link>
+          </div>
         </div>
       )}
     </header>

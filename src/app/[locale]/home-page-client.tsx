@@ -62,7 +62,7 @@ export function HomePageClient({ locale, dict, games: allGames, activeCategory, 
           {activeCategory === 'all' ? dict.allGames : dict.categories[activeCategory as Category]}
           <span className="ml-2 text-sm font-normal text-muted-foreground">({filteredGames.length})</span>
         </h2>
-        <GameGrid games={filteredGames} locale={locale} emptyMessage={dict.noResults} />
+        <GameGrid games={filteredGames} locale={locale} dict={dict} emptyMessage={dict.noResults} />
       </section>
     </div>
   );
