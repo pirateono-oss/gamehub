@@ -5,6 +5,17 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'PlayFree Games',
   description: 'Free online HTML5 games - Play now!',
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [{ url: '/icon-192.png', sizes: '192x192', type: 'image/png' }, { url: '/icon-512.png', sizes: '512x512', type: 'image/png' }],
+    apple: [{ url: '/icon-192.png', sizes: '192x192' }],
+  },
+  openGraph: {
+    title: 'PlayFree Games - Free Online Games',
+    description: 'Play free HTML5 games online. No downloads, no registration.',
+    images: [{ url: '/icon-512.png', width: 512, height: 512 }],
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

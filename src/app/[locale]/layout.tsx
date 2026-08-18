@@ -1,8 +1,7 @@
-import Link from 'next/link';
-import Script from 'next/script';
 import type { Metadata } from 'next';
 import '../globals.css';
 import { Header } from '@/components/header';
+import { SiteNetworkFooter } from '@/components/site-network-footer';
 import { isValidLocale, getDictionary } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
 import { notFound } from 'next/navigation';
@@ -50,16 +49,7 @@ export default async function LocaleLayout({
     <>
       <Header locale={locale as Locale} dict={dict} />
       <main className="min-h-[calc(100vh-64px)]">{children}</main>
-      <footer className="border-t border-border bg-card py-6 text-center text-sm text-muted-foreground">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="mb-2 flex items-center justify-center gap-4">
-              <Link href={`/${locale}`} className="hover:text-foreground transition-colors">{dict.home}</Link>
-              <Link href={`/${locale}/about`} className="hover:text-foreground transition-colors">About</Link>
-              <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">Privacy</Link>
-            </div>
-            <p>&copy; 2025 {dict.siteTitle}. {dict.allRightsReserved}</p>
-          </div>
-        </footer>
-        </>
-        );
+      <SiteNetworkFooter locale={locale as Locale} />
+    </>
+  );
 }
