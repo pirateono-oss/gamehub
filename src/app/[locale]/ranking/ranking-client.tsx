@@ -1,13 +1,16 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Trophy, Medal, Award, Share2 } from 'lucide-react';
-import { getScores, getUser, saveScore, shareScore } from '@/lib/user-system';
+import { Trophy, Share2 } from 'lucide-react';
+import { getScores, getUser } from '@/lib/user-system';
+import { ShareModal } from '@/components/share-modal';
 import { getAllGames } from '@/lib/game-utils';
 import type { Locale } from '@/lib/types';
+import type { GameScore } from '@/lib/user-system';
 
 export default function RankingClient({ locale }: { locale: Locale }) {
   const [scores, setScores] = useState<ReturnType<typeof getScores>>([]);
   const [user, setUser] = useState(getUser());
+  const [shareScoreData, setShareScoreData] = useState<GameScore | null>(null);
 
   useEffect(() => {
     setScores(getScores());
@@ -55,13 +58,14 @@ export default function RankingClient({ locale }: { locale: Locale }) {
                 <p className="text-xl font-bold text-primary">{s.score.toLocaleString()} pts</p>
                 {s.level && <p className="text-xs text-muted-foreground">Nivel {s.level}</p>}
               </div>
-              <button onClick={() => shareScore(s)} className="rounded-lg bg-secondary p-2.5 text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-primary" title="Compartir">
+              <button onClick={() => setShareScoreData(s)} className="rounded-lg bg-secondary p-2.5 text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-primary" title="Compartir">
                 <Share2 className="h-4 w-4" />
               </button>
             </div>
           ))}
         </div>
       )}
+      {shareScoreData && <ShareModal score={shareScoreData} onClose={() => setShareScoreData(null)} />}
     </div>
   );
 }

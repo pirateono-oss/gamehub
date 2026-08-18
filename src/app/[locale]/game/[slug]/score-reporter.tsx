@@ -1,7 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { saveScore, getUser, shareScore } from '@/lib/user-system';
+import { saveScore, getUser } from '@/lib/user-system';
+import { ShareModal } from '@/components/share-modal';
 import type { Locale } from '@/lib/types';
+import type { GameScore } from '@/lib/user-system';
 
 interface ScoreReporterProps {
   gameSlug: string;
@@ -12,6 +14,8 @@ interface ScoreReporterProps {
 export function ScoreReporter({ gameSlug, gameTitle, locale }: ScoreReporterProps) {
   const [lastScore, setLastScore] = useState<{ score: number; level?: number } | null>(null);
   const [toast, setToast] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareScoreData, setShareScoreData] = useState<GameScore | null>(null);
 
   useEffect(() => {
     const handler = (event: MessageEvent) => {
@@ -49,7 +53,7 @@ export function ScoreReporter({ gameSlug, gameTitle, locale }: ScoreReporterProp
           <p className="text-xs text-muted-foreground">{gameTitle}</p>
         </div>
         {getUser() ? (
-          <button onClick={() => shareScore({ slug: gameSlug, gameTitle, score: lastScore.score, level: lastScore.level, date: Date.now() })}
+          <button onClick={() => { setShareScoreData({ slug: gameSlug, gameTitle, score: lastScore.score, level: lastScore.level, date: Date.now() }); setShareOpen(true); }}
             className="rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground hover:bg-primary/90">
             Compartir
           </button>
@@ -57,6 +61,7 @@ export function ScoreReporter({ gameSlug, gameTitle, locale }: ScoreReporterProp
           <span className="text-xs text-muted-foreground">Crea un perfil para guardar</span>
         )}
       </div>
+      {shareOpen && shareScoreData && <ShareModal score={shareScoreData} onClose={() => setShareOpen(false)} />}
     </div>
   );
 }
