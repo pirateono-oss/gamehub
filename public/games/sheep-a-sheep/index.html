@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Sheep a Sheep - Tile Match</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(160deg,#7c3aed,#4c1d95);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px;user-select:none}
+h1{color:#fff;font-size:22px;margin:8px 0 4px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.subtitle{color:#ddd6fe;font-size:13px;margin-bottom:10px}
+.stats{display:flex;gap:16px;color:#fff;font-size:14px;margin-bottom:10px}
+.stats span{background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px;backdrop-filter:blur(4px)}
+#board{width:min(420px,94vw);aspect-ratio:1;background:rgba(255,255,255,.08);border-radius:16px;padding:8px;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);gap:4px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.tile{position:relative;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:clamp(14px,4.2vw,22px);cursor:pointer;transition:transform .1s,opacity .2s;background:linear-gradient(145deg,#fef3c7,#fde68a);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.tile.covered{background:linear-gradient(145deg,#a78bfa,#8b5cf6)}
+.tile.covered .symbol{filter:brightness(0);opacity:.35}
+.tile:active{transform:scale(.92)}
+.tile.hidden{visibility:hidden;pointer-events:none}
+.tile.selected{outline:3px solid #f59e0b;outline-offset:1px;transform:scale(1.05)}
+.tile.wrong{animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+#tray{width:min(420px,94vw);min-height:70px;background:rgba(255,255,255,.1);border-radius:16px;margin-top:10px;padding:6px;display:flex;gap:4px;flex-wrap:wrap;align-items:center;justify-content:flex-start;box-shadow:inset 0 2px 8px rgba(0,0,0,.2)}
+#tray .tile{width:52px;height:52px;font-size:20px}
+#tray .tile.covered{background:linear-gradient(145deg,#fef3c7,#fde68a)}
+#tray .tile.covered .symbol{filter:none;opacity:1}
+.btn{background:linear-gradient(145deg,#f59e0b,#d97706);color:#fff;border:none;padding:10px 28px;border-radius:24px;font-size:15px;font-weight:600;margin:10px 0;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);transition:transform .1s}
+.btn:active{transform:scale(.95)}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px)}
+.modal{background:#fff;border-radius:20px;padding:30px 36px;text-align:center;max-width:320px;width:90%}
+.modal h2{font-size:24px;margin-bottom:12px}
+.modal p{color:#666;margin-bottom:18px;font-size:14px}
+.modal .btn{margin:4px}
+.win h2{color:#16a34a}
+.lose h2{color:#dc2626}
+.tip{color:#ddd6fe;font-size:11px;margin-top:8px;text-align:center;max-width:420px;line-height:1.5}
+</style>
+</head>
+<body>
+<h1>🐑 Sheep a Sheep</h1>
+<p class="subtitle">羊了个羊 · Encuentra 3 iguales</p>
+<div class="stats">
+  <span>🔄 <b id="moves">0</b></span>
+  <span>🧺 <b id="trayCount">0</b>/7</span>
+  <span>✅ <b id="cleared">0</b>/54</span>
+</div>
+<div id="board"></div>
+<div id="tray"></div>
+<button class="btn" onclick="resetGame()">🔄 Reiniciar</button>
+<div class="tip">💡 Haz clic en 3 fichas iguales para eliminarlas. Las fichas grises están tapadas: elimina las de arriba primero. Si la cesta se llena con 7 fichas, pierdes. Usa la herramienta 🔧 para deshacer un movimiento.</div>
+<div id="overlay"><div class="modal" id="modal"></div></div>
+<script>
+const SYMBOLS=['🐑','🐮','🐷','🐸','🐔','🐴','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐶','🐱','🐭','🐹','🐻‍❄️','🐙','🦋','🐞','🐝','🐢','🐬','🐳','🦄','🐲','🦅','🦉','🐺','🦇','🐒','🦎','🐍','🐠','🐡'];
+const SIZE=8,TOTAL=54,MAX_TRAY=7;
+let grid=[],tray=[],moves=0,cleared=0,selected=[],gameOver=false,tools=3;
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function initGrid(){
+  // 54 tiles -> 18 groups of 3
+  const pool=[];
+  for(let g=0;g<18;g++){const s=SYMBOLS[g%SYMBOLS.length];pool.push(s,s,s)}
+  shuffle(pool);
+  grid=[];
+  let idx=0;
+  for(let r=0;r<SIZE;r++){
+    const row=[];
+    for(let c=0;c<SIZE;c++){
+      const isTile=idx<TOTAL;
+      // Randomize which cells are empty (keep 54 tiles in 64 cells)
+      const cell=isTile?{symbol:pool[idx],covered:Math.random()<0.38,hidden:false}:null;
+      if(isTile)idx++;
+      row.push(cell);
+    }
+    grid.push(row);
+  }
+  // Ensure exactly TOTAL tiles - remove extras from bottom rows if over
+  let count=0;const extra=[];
+  for(let r=0;r<SIZE;r++)for(let c=0;c<SIZE;c++)if(grid[r][c]){count++;if(count>TOTAL){grid[r][c]=null;}}
+  // Ensure at least some uncovered tiles are playable
+  updateCovered();
+}
+
+function updateCovered(){
+  // A tile is "covered" if any tile in the 3x3 area above it exists
+  for(let r=1;r<SIZE;r++){
+    for(let c=0;c<SIZE;c++){
+      if(!grid[r][c]||grid[r][c].hidden)continue;
+      let cov=false;
+      for(let dr=Math.max(0,r-1);dr<r;dr++){
+        for(let dc=Math.max(0,c-1);dc<=Math.min(SIZE-1,c+1);dc++){
+          if(grid[dr][dc]&&!grid[dr][dc].hidden){cov=true;break}
+        }
+        if(cov)break;
+      }
+      grid[r][c].covered=cov;
+    }
+  }
+}
+
+function render(){
+  const board=document.getElementById('board');
+  board.innerHTML='';
+  for(let r=0;r<SIZE;r++){
+    for(let c=0;c<SIZE;c++){
+      const cell=grid[r][c];
+      const div=document.createElement('div');
+      if(!cell||cell.hidden){div.className='tile hidden';board.appendChild(div);continue}
+      div.className='tile'+(cell.covered?' covered':'');
+      div.innerHTML='<span class="symbol">'+cell.symbol+'</span>';
+      if(!cell.covered){
+        const isSel=selected.some(s=>s.r===r&&s.c===c);
+        if(isSel)div.classList.add('selected');
+        div.onclick=()=>clickTile(r,c);
+      }else{
+        div.style.cursor='not-allowed';
+      }
+      board.appendChild(div);
+    }
+  }
+  const trayEl=document.getElementById('tray');
+  trayEl.innerHTML='';
+  tray.forEach((t,i)=>{
+    const d=document.createElement('div');
+    d.className='tile';
+    d.innerHTML='<span class="symbol">'+t.symbol+'</span>';
+    d.onclick=()=>removeFromTray(i);
+    trayEl.appendChild(d);
+  });
+  document.getElementById('moves').textContent=moves;
+  document.getElementById('trayCount').textContent=tray.length;
+  document.getElementById('cleared').textContent=cleared;
+}
+
+function clickTile(r,c){
+  if(gameOver)return;
+  const cell=grid[r][c];
+  if(!cell||cell.covered||cell.hidden)return;
+  // Check if already selected
+  const exists=selected.findIndex(s=>s.r===r&&s.c===c);
+  if(exists>=0){selected.splice(exists,1);render();return}
+  if(selected.length>=3)return;
+  selected.push({r,c,symbol:cell.symbol});
+  moves++;
+  render();
+  if(selected.length===3){
+    const sym=selected[0].symbol;
+    setTimeout(()=>{
+      if(selected.every(s=>grid[s.r][s.c]&&grid[s.r][s.c].symbol===sym&&!grid[s.r][s.c].hidden)){
+        selected.forEach(s=>{grid[s.r][s.c].hidden=true});
+        cleared+=3;
+        selected=[];
+        updateCovered();
+        render();
+        if(cleared>=TOTAL){endGame(true);return}
+        if(!hasMoves()){endGame(false,true);return}
+      }else{
+        // Mismatch - send to tray
+        tray.push(...selected.map(s=>({symbol:grid[s.r][s.c].symbol})));
+        selected=[];
+        render();
+        if(tray.length>=MAX_TRAY){endGame(false);return}
+        checkTrayMatch();
+      }
+    },250);
+  }
+}
+
+function checkTrayMatch(){
+  // Auto-match 3 same symbols in tray
+  const count={};
+  tray.forEach(t=>{count[t.symbol]=(count[t.symbol]||0)+1});
+  for(const[sym,n]of Object.entries(count)){
+    if(n>=3){
+      const keep=tray.filter(t=>t.symbol!==sym);
+      // Remove 3, keep rest
+      let toRemove=3;
+      const newTray=tray.filter(t=>{if(t.symbol===sym&&toRemove>0){toRemove--;return false}return true});
+      tray=newTray;
+      cleared+=3;
+      render();
+      if(cleared>=TOTAL){endGame(true);return}
+      break;
+    }
+  }
+}
+
+function removeFromTray(i){
+  if(gameOver)return;
+  // Return tile to a random empty cell
+  const cell=findEmptyCell();
+  if(cell){
+    cell.symbol=tray[i].symbol;
+    cell.hidden=false;
+    cell.covered=false;
+    tray.splice(i,1);
+    updateCovered();
+    render();
+  }
+}
+
+function findEmptyCell(){
+  const empties=[];
+  for(let r=0;r<SIZE;r++)for(let c=0;c<SIZE;c++)if(grid[r][c]&&grid[r][c].hidden)empties.push(grid[r][c]);
+  if(empties.length)return empties[Math.floor(Math.random()*empties.length)];
+  return null;
+}
+
+function hasMoves(){
+  const visible=[];
+  for(let r=0;r<SIZE;r++)for(let c=0;c<SIZE;c++){
+    const cell=grid[r][c];
+    if(cell&&!cell.covered&&!cell.hidden)visible.push(cell.symbol);
+  }
+  // Also count tray
+  const all=[...visible,...tray.map(t=>t.symbol)];
+  const count={};
+  all.forEach(s=>count[s]=(count[s]||0)+1);
+  return Object.values(count).some(n=>n>=3);
+}
+
+function endGame(won,noMoves){
+  gameOver=true;
+  const overlay=document.getElementById('overlay');
+  const modal=document.getElementById('modal');
+  if(won){
+    modal.className='modal win';
+    modal.innerHTML='<h2>🎉 ¡Ganaste!</h2><p>Eliminaste todas las fichas en '+moves+' movimientos.</p><button class="btn" onclick="resetGame()">Jugar de nuevo</button>';
+  }else{
+    modal.className='modal lose';
+    const reason=noMoves?'¡No quedan movimientos posibles!':'¡La cesta se llenó!';
+    modal.innerHTML='<h2>😵 ¡Perdiste!</h2><p>'+reason+' Eliminaste '+cleared+' de '+TOTAL+' fichas.</p><button class="btn" onclick="resetGame()">Intentar de nuevo</button>';
+  }
+  overlay.style.display='flex';
+}
+
+function resetGame(){
+  tray=[];
+  selected=[];
+  moves=0;cleared=0;gameOver=false;tools=3;
+  document.getElementById('overlay').style.display='none';
+  initGrid();
+  render();
+}
+
+resetGame();
+</script>
+</body>
+</html>

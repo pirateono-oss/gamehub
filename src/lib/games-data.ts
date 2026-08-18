@@ -2,6 +2,17 @@ import type { Game } from './types';
 
 export const games: Game[] = [
   {
+    slug: 'sheep-a-sheep',
+    category: 'puzzle',
+    iframeUrl: '/games/sheep-a-sheep/index.html',
+    thumbnailEmoji: '🐑',
+    translations: {
+      en: { title: 'Sheep a Sheep', description: 'A challenging tile-matching puzzle game! Find and match 3 identical tiles to clear the board. But be careful - tiles are stacked in layers and you can only reach the top ones.', instructions: 'Click 3 identical tiles to match and remove them. Gray tiles are covered - clear the ones above first. Don\'t let the tray fill up with 7 tiles or you lose!' },
+      es: { title: 'Sheep a Sheep', description: '¡Un desafiante juego de puzzle de fichas! Encuentra y empareja 3 fichas idénticas para limpiar el tablero. Pero cuidado - las fichas están apiladas en capas y solo puedes alcanzar las de arriba.', instructions: 'Haz clic en 3 fichas iguales para emparejarlas y eliminarlas. Las fichas grises están tapadas - elimina las de arriba primero. ¡No dejes que la cesta se llene con 7 fichas o perderás!' },
+      pt: { title: 'Sheep a Sheep', description: 'Um desafiador jogo de quebra-cabeça de fichas! Encontre e combine 3 fichas idênticas para limpar o tabuleiro. Mas cuidado - as fichas estão empilhadas em camadas e você só pode alcançar as de cima.', instructions: 'Clique em 3 fichas idênticas para combinar e removê-las. Fichas cinzas estão cobertas - limpe as de cima primeiro. Não deixe a cesta encher com 7 fichas ou você perde!' },
+    },
+  },
+  {
     slug: 'tetris',
     category: 'puzzle',
     iframeUrl: '/games/tetris/index.html',
