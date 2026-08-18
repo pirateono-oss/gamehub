@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pages.push({ url: `${baseUrl}/${locale}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 });
     pages.push({ url: `${baseUrl}/${locale}/contact`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 });
     pages.push({ url: `${baseUrl}/${locale}/privacy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.3 });
+    pages.push({ url: `${baseUrl}/${locale}/ranking`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.6 });
     for (const game of games) {
       pages.push({ url: `${baseUrl}/${locale}/game/${game.slug}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 });
     }

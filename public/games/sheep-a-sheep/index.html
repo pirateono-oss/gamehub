@@ -221,15 +221,20 @@ function hasMoves(){
 
 function endGame(won,noMoves){
   gameOver=true;
+  // Report score to parent page (gamehub)
+  const score = won ? 1000 + Math.max(0, 500 - moves * 5) : cleared * 10;
+  try {
+    window.parent.postMessage({ type:'gamehub-score', slug:'sheep-a-sheep', score, level: won ? 1 : 0 }, '*');
+  } catch(e){}
   const overlay=document.getElementById('overlay');
   const modal=document.getElementById('modal');
   if(won){
     modal.className='modal win';
-    modal.innerHTML='<h2>🎉 ¡Ganaste!</h2><p>Eliminaste todas las fichas en '+moves+' movimientos.</p><button class="btn" onclick="resetGame()">Jugar de nuevo</button>';
+    modal.innerHTML='<h2>🎉 ¡Ganaste!</h2><p>Eliminaste todas las fichas en '+moves+' movimientos. ¡Puntuación: '+score+'!</p><button class="btn" onclick="resetGame()">Jugar de nuevo</button>';
   }else{
     modal.className='modal lose';
     const reason=noMoves?'¡No quedan movimientos posibles!':'¡La cesta se llenó!';
-    modal.innerHTML='<h2>😵 ¡Perdiste!</h2><p>'+reason+' Eliminaste '+cleared+' de '+TOTAL+' fichas.</p><button class="btn" onclick="resetGame()">Intentar de nuevo</button>';
+    modal.innerHTML='<h2>😵 ¡Perdiste!</h2><p>'+reason+' Eliminaste '+cleared+' de '+TOTAL+' fichas. Puntuación: '+score+'.</p><button class="btn" onclick="resetGame()">Intentar de nuevo</button>';
   }
   overlay.style.display='flex';
 }

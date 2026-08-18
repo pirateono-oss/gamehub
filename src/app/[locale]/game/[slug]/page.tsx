@@ -6,6 +6,7 @@ import type { Locale } from '@/lib/types';
 import { AdPlaceholder } from '@/components/ad-placeholder';
 import { GameGrid } from '@/components/game-grid';
 import { GameIframe } from './game-iframe';
+import { ScoreReporter } from './score-reporter';
 import { Gamepad2, Info, Joystick } from 'lucide-react';
 
 interface GamePageProps { params: Promise<{ locale: string; slug: string }>; }
@@ -52,6 +53,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-4">
+      <ScoreReporter gameSlug={game.slug} gameTitle={title} locale={localeTyped} />
       <AdPlaceholder size="banner" label={dict.adPlaceholder} className="mb-4" />
       <div id="game-frame" className="mb-4 overflow-hidden rounded-xl border border-border bg-black">
         <GameIframe src={game.iframeUrl} title={title} fullscreenLabel={dict.fullscreen} exitLabel={dict.exitFullscreen} />

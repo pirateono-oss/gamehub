@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import type { Locale, TranslationDict } from '@/lib/types';
 import { locales, localeNames } from '@/lib/i18n';
 import { Search, Globe, Gamepad2, Menu, X } from 'lucide-react';
+import { UserButton } from '@/components/user-button';
 
 interface HeaderProps { locale: Locale; dict: TranslationDict; }
 
@@ -34,6 +35,7 @@ export function Header({ locale, dict }: HeaderProps) {
           </div>
         </form>
         <div className="flex items-center gap-2">
+          <UserButton />
           <div className="relative">
             <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
               <Globe className="h-4 w-4" /><span className="hidden sm:inline">{localeNames[locale]}</span>
